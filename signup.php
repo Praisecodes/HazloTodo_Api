@@ -1,6 +1,7 @@
 <?php
     require_once "connection.php";
     require_once "headers.php";
+    require_once "sendemail.php";
 
     $contents = trim(file_get_contents("php://input"));
 
@@ -14,7 +15,12 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssss', $fullname, $username, $email, $password);
     if($stmt->execute()){
-        http_response_code(200);
+        if(WelcomeEmail($email, $username)){
+            http_response_code(200);
+        }
+        else{
+            http_response_code(201);
+        }
     }
     else{
         http_response_code(500);
