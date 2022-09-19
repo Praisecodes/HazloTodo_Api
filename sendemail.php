@@ -1,5 +1,6 @@
 <?php
     require_once "vendor/autoload.php";
+    require_once "emailbody.php";
 
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\OAuth;
@@ -16,9 +17,9 @@
     $mail->AuthType = "XOAUTH2";
 
     $sender_email = "hazlotodoapp@gmail.com";
-    $clientId = "";
-    $clientSecret = "";
-    $refreshToken = "";
+    $clientId = "464344199134-p14jtpa6t8uje8nmdbtec1nc0h19di7t.apps.googleusercontent.com";
+    $clientSecret = "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";
+    $refreshToken = "1//04HsofFekNHXyCgYIARAAGAQSNwF-L9IrTh3p8a3CjQ75RdlmUuX5SrQa6Fo13nc4qviY9FOG5FmsohFMdZS8fxi6sqt5bmzzAbY";
 
     $provider = new Google([
         'clientId' => $clientId,
@@ -43,12 +44,19 @@
         global $mail;
         $mail->addAddress($receiver_email);
         $mail->Subject = "Welcome " . $usersname . "!!";
-        $mail->Body = "Welcome To The Club " . $usersname . "<br/> We're happy to have you";
+        $mail->msgHTML(Welcome($usersname), __DIR__);
         if(!$mail->send()){
             return false;
         }
         else{
             return true;
         }
+    }
+
+    if(WelcomeEmail("cmancoder@gmail.com", "Praise Codes")){
+        echo "Done!";
+    }
+    else{
+        echo "Not Done!";
     }
 ?>

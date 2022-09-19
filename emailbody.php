@@ -45,20 +45,22 @@
                 With Hazlo Todo, you\'d get updates on when your schedules/activities are due <br>You can create
                 new schedules and equally update existing schedules <br><br>
             </p>
-            <h3 class="mainText">Don\'t Need A Link Anymore?</h3>
+            <h3 class="mainText">Is An Activity Taking Up Space?</h3>
             <p class="mainText">
                 Use the delete button! It\'s that easy!!  <br>
-                Add links to your favourites and see them as soon as you login 🚀. <br><br>
+                Add schedules to your archives to help arrange your dashboard even more! <br><br>
                 We hope to see you around quite often!✅✨
             </p><br>
             <h3 class="mainText">Any Issues?</h3>
             <p class="mainText">
                 Feel free to contact use via: <br>
-                Email - linkashare@gmail.com <br>
+                Email - hazlotodoapp@gmail.com <br>
                 WhatsApp - https://wa.me/2347061763713
             </p>
-            <p class="footer" style="text-align: center;">Copyright &copy; 2022 Linkashare</p>
+            <p class="footer" style="text-align: center;">Copyright &copy; 2022 Hazlo Todo</p>
         </div>
     </body>';
+
+    return $body;
     }
 ?>

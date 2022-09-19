@@ -1,11 +1,11 @@
 <?php
-    require_once "connection.php";
     require_once "headers.php";
+    require_once "connection.php";
     require_once "sendemail.php";
 
     $contents = trim(file_get_contents("php://input"));
 
-    $decoded_contents = json_decode($contents);
+    $decoded_contents = json_decode($contents, true);
     $fullname = TestInput($decoded_contents["fullname"]);
     $username = TestInput($decoded_contents["username"]);
     $email = TestInput($decoded_contents["email"]);
@@ -21,6 +21,8 @@
         else{
             http_response_code(201);
         }
+        // http_response_code(201);
+        exit;
     }
     else{
         http_response_code(500);
