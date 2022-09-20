@@ -3,6 +3,7 @@
     "require": {
         "phpmailer/phpmailer": "^6.6",
         "yoast/phpunit-polyfills": "^1.0.0",
-        "league/oauth2-google": "^4.0"
+        "league/oauth2-google": "^4.0",
+        "firebase/php-jwt": "^6.3"
     }
 }
