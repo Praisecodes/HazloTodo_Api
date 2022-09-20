@@ -21,7 +21,6 @@
         else{
             http_response_code(201);
         }
-        // http_response_code(201);
         exit;
     }
     else{
