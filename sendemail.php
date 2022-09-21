@@ -52,11 +52,4 @@
             return true;
         }
     }
-
-    if(WelcomeEmail("cmancoder@gmail.com", "Praise Codes")){
-        echo "Done!";
-    }
-    else{
-        echo "Not Done!";
-    }
 ?>

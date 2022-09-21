@@ -4,14 +4,13 @@
     require_once "sendemail.php";
 
     $contents = trim(file_get_contents("php://input"));
+    $decoded = json_decode($contents, true);
+    $username = TestInput($decoded["username"]);
+    $fullname = TestInput($decoded["fullname"]);
+    $email = TestInput($decoded["email"]);
+    $password = TestInput(md5($decoded["password"]));
 
-    $decoded_contents = json_decode($contents, true);
-    $fullname = TestInput($decoded_contents["fullname"]);
-    $username = TestInput($decoded_contents["username"]);
-    $email = TestInput($decoded_contents["email"]);
-    $password = TestInput(md5($decoded_contents["password"]));
-
-    $sql = "INSERT INTO user_info (fullname, username, email, user_password) VALUES(?,?,?,?);";
+    $sql = "INSERT INTO user_info(fullname, username, email, user_password) VALUES(?,?,?,?);";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssss', $fullname, $username, $email, $password);
     if($stmt->execute()){
