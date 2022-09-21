@@ -10,8 +10,7 @@
     $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
     if($conn->connect_error){
-        http_response_code(500);
-        exit;
+        die("error!");
     }
 
 ?>

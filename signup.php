@@ -16,15 +16,21 @@
     if($stmt->execute()){
         if(WelcomeEmail($email, $username)){
             http_response_code(200);
+            $stmt->close();
+            $conn->close();
             exit;
         }
         else{
             http_response_code(201);
+            $stmt->close();
+            $conn->close();
             exit;
         }
     }
     else{
         http_response_code(500);
+        $stmt->close();
+        $conn->close();
         exit;
     }
 ?>

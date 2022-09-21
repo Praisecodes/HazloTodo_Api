@@ -35,19 +35,27 @@
                 echo json_encode([
                     $jwt
                 ]);
+                $stmt->close();
+                $conn->close();
                 exit;
             }
             else{
                 http_response_code(403);
+                $stmt->close();
+                $conn->close();
                 exit;
             }
         }
         else{
             http_response_code(404);
+            $stmt->close();
+            $conn->close();
         }
     }
     else{
         http_response_code(500);
+        $stmt->close();
+        $conn->close();
         exit;
     }
 ?>
