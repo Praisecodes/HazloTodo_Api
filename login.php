@@ -25,7 +25,7 @@
                     $userID = $row["id"];
                 }
                 if(!($password !== $mainPassword)){
-                    http_response_code(200);
+                    //http_response_code(200);
                     $secretKey = "some_crazy_long_secret_key_I_used";
                     $payload = [
                         'iss'=>'https://hazloapi.herokuapp.com',
