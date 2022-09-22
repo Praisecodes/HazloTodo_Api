@@ -35,6 +35,7 @@
                 echo json_encode([
                     $jwt
                 ]);
+                echo "$username";
                 $stmt->close();
                 $conn->close();
                 exit;
