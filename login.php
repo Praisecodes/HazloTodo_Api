@@ -24,14 +24,14 @@
                     $mainPassword = $row["user_password"];
                     $userID = $row["id"];
                 }
-                if($password === $mainPassword){
+                if(!($password !== $mainPassword)){
                     http_response_code(200);
                     $secretKey = "some_crazy_long_secret_key_I_used";
-                   $payload = [
+                    $payload = [
                         'iss'=>'https://hazloapi.herokuapp.com',
-                     'iat'=>time(),
+                        'iat'=>time(),
                         'id'=>$userID
-                   ];
+                    ];
                    $jwt = JWT::encode($payload, $secretKey, "HS256");
                     echo json_encode([
                        $jwt
@@ -50,7 +50,7 @@
             }
            else{
                 http_response_code(404);
-               $stmt->close();
+                $stmt->close();
                 $conn->close();
             }
         }
