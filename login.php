@@ -8,8 +8,8 @@
     $contents = trim(file_get_contents("php://input"));
     $decoded_contents = json_decode($contents, true);
 
-    $username = TestInput($decoded_contents["username"]);
-    $password = TestInput(md5($decoded_contents["password"]));
+    $username = (!empty(TestInput($decoded_contents["username"]))?TestInput($decoded_contents["username"]):null);
+    $password = (!empty($decoded_contents["password"]) ? TestInput(md5($decoded_contents["password"])) : null);
     $userID;
     $mainPassword;
 
