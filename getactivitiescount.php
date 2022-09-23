@@ -7,7 +7,7 @@
     use Firebase\JWT\Key;
 
     $headers = getallheaders();
-    $jwt_supplied = $headers["AUTHORIZATION"];
+    $jwt_supplied = $headers["Authorization"];
     $secretKey = "some_crazy_long_secret_key_I_used";
     print_r($headers);
 
