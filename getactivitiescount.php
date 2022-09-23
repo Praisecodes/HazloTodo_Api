@@ -9,6 +9,7 @@
     $headers = getallheaders();
     $jwt_supplied = $headers["AUTHORIZATION"];
     $secretKey = "some_crazy_long_secret_key_I_used";
+    print_r($headers);
 
     $user_id = JWT::decode($jwt_supplied, new Key($secretKey, "HS256"))->id;
     $username = "";
