@@ -2,7 +2,6 @@
     require_once './getjwt.php';
     require_once './vendor/autoload.php';
     require_once './connection.php';
-    header("HTTP/1.1 200 OK");
 
     $user_id = getID();
     $username = "";
