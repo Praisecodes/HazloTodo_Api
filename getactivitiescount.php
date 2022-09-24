@@ -6,12 +6,12 @@
     use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-    $headers = getallheaders();
-    $theJwt = $_SERVER['HTTP_AUTHORIZATION'];
+    //$headers = getallheaders();
+    //$theJwt = $_SERVER['HTTP_AUTHORIZATION'];
     $skey = 'some_crazy_long_secret_key_I_used';
 
-    if(!($_SERVER['HTTP_AUTHORIZATION'] == null)){
-        print_r(json_encode($theJwt));
+    if(true){
+        print_r(json_encode($_SERVER['HTTP_AUTHORIZATION']));
         exit;
     }
 
