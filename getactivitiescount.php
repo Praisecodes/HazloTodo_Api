@@ -7,12 +7,12 @@
 use Firebase\JWT\Key;
 
     $headers = getallheaders();
-    $theJwtarr = explode(" ", $headers['Authorization']);
+    $theJwtarr = explode(" ", $headers['Authorization'])[1];
     $skey = 'some_crazy_ _secret_key_I_used';
 
     if(true){
         echo json_encode($theJwtarr[1]);
-        $decode = JWT::decode($theJwtarr[1], new Key($skey, 'HS256'));
+        $decode = JWT::decode($theJwtarr, new Key($skey, 'HS256'));
         // $decodearr = (array) $decode;
         // $user_id = $decodearr["id"];
         exit;
