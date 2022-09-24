@@ -10,8 +10,8 @@ use Firebase\JWT\Key;
     $theJwt = $headers['authorization'];
     $skey = 'some_crazy_long_secret_key_I_used';
 
-    if($theJwt){
-        echo json_encode([$theJwt]);
+    if($headers){
+        print_r(json_encode($headers));
         exit;
     }
 
