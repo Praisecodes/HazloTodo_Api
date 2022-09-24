@@ -11,7 +11,7 @@ use Firebase\JWT\Key;
     $skey = 'some_crazy_long_secret_key_I_used';
 
     if($headers){
-        print_r($_SERVER['HTTP_AUTHORIZATION']);
+        print_r(json_encode($_SERVER['HTTP_AUTHORIZATION']));
         exit;
     }
 
