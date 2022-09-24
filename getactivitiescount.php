@@ -1,18 +1,17 @@
 <?php
-    require_once 'headers.php';
     require_once 'vendor/autoload.php';
+    require_once 'headers.php';
     require_once 'connection.php';
-    
+
     use Firebase\JWT\JWT;
-    use Firebase\JWT\Key;
+use Firebase\JWT\Key;
 
     $headers = getallheaders();
-    $jwt_supplied = $headers['authorization'];
-    $secretKey = "some_crazy_long_secret_key_I_used";
-
-    $decode = JWT::decode($jwt_supplied, new Key($secretKey, "HS256"));
-    $decode_array = (array) $decode;
-    $user_id = $decode_array['id'];
+    $theJwt = $headers['authorization'];
+    $skey = 'some_crazy_long_secret_key_I_used';
+    $decode = JWT::decode($theJwt, new Key($skey, 'HS256'));
+    $decodearr = (array) $decode;
+    $user_id = $decodearr["id"];
 
     $username = "";
     $confirm = "true";
