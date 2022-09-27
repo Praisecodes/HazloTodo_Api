@@ -6,8 +6,9 @@
     use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-    $headers = getallheaders();
-    $theJwtarr = explode(" ", $headers['Authorization'])[1];
+    $contents = trim(file_get_contents("php://input"));
+    $decoded = json_decode($contents, true);
+    $theJwtarr = $decoded['token'];
     $skey = 'some_crazy_long_secret_key_I_used';
 
     if(true){
