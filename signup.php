@@ -11,27 +11,43 @@
     $password = TestInput(md5($decoded["password"]));
 
     if(!empty($fullname) && !empty($username) && !empty($email) && !empty($password)){
-        $sql = "INSERT INTO user_info(fullname, username, email, user_password) VALUES(?,?,?,?);";
+        $sql = 'SELECT * FROM `user_info` WHERE username=? OR email=?';
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssss', $fullname, $username, $email, $password);
+        $stmt->bind_param('ss', $username, $email);
         if($stmt->execute()){
-            if(WelcomeEmail($email, $username)){
-                http_response_code(200);
-                $stmt->close();
-                $conn->close();
+            $results = $stmt->get_result();
+            if($results->num_rows > 0){
+                http_response_code(304);
                 exit;
             }
             else{
-                http_response_code(201);
-                $stmt->close();
-                $conn->close();
-                exit;
+                $sql = "INSERT INTO user_info(fullname, username, email, user_password) VALUES(?,?,?,?);";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('ssss', $fullname, $username, $email, $password);
+                if($stmt->execute()){
+                    if(WelcomeEmail($email, $username)){
+                        http_response_code(200);
+                        $stmt->close();
+                        $conn->close();
+                        exit;
+                    }
+                    else{
+                        http_response_code(201);
+                        $stmt->close();
+                        $conn->close();
+                        exit;
+                    }
+                }   
+                else{
+                    http_response_code(500);
+                    $stmt->close();
+                    $conn->close();
+                    exit;
+                }
             }
         }
         else{
             http_response_code(500);
-            $stmt->close();
-            $conn->close();
             exit;
         }
     }
