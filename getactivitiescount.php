@@ -13,11 +13,11 @@ use Firebase\JWT\Key;
     $mainJwt = explode(" ", $jwt)[1];
 
     if(true){
-        echo $mainJwt;
-        // $decode = JWT::decode($theJwtarr, $skey, ['HS256']);
-        // $decodearr = (array) $decode;
-        // $user_id = $decodearr["id"];
-        // print_r(json_encode((array) $decode));
+        // echo $mainJwt;
+        $decode = JWT::decode($mainJwt, $skey, ['HS256']);
+        $decodearr = (array) $decode;
+        $user_id = $decodearr["id"];
+        print_r(json_encode((array) $decode));
         exit;
     }
 
