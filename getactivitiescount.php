@@ -1,7 +1,13 @@
 <?php
     require_once 'vendor/autoload.php';
-    require_once 'headers.php';
+    // require_once 'headers.php';
     require_once 'connection.php';
+
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    header("Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS, DELETE");
+    header("Access-Conrol-Allow-Credentials: true");
+    header("Access-Control-Allow-Origin: *");
 
     use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
