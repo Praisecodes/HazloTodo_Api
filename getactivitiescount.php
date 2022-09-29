@@ -18,7 +18,9 @@
     $jwt = $headers["Authorization"];
     $mainJwt = explode(" ", $jwt)[1];
 
-    echo $mainJwt;
+    // echo $mainJwt;
+    $decoded_jwt = JWT::decode($mainJwt, $skey, ['HS256']);
+    echo "done!";
     
     
 
