@@ -10,41 +10,16 @@
     header("Access-Control-Allow-Origin: *");
 
     use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+    use Firebase\JWT\Key;
 
     
     $skey = 'some_crazy_long_secret_key_I_used';
-    // $headers = getallheaders();
-    // $jwt = $headers["Authorization"];
-    // $mainJwt = explode(" ", $jwt)[1];
+    $headers = getallheaders(); //$_SERVER["HTTP_AUTHORIZATION"]
+    $jwt = $headers["Authorization"];
+    $mainJwt = explode(" ", $jwt)[1];
 
-    // if(true){
-    //     // echo $mainJwt;
-    //     $decode = JWT::decode($mainJwt, $skey, ['HS256']);
-    //     $decodearr = (array) $decode;
-    //     $user_id = $decodearr["id"];
-    //     echo json_encode($decodearr);
-    //     exit;
-    // }
-
-    $token = null;
-  $headers = apache_request_headers();
-  if(isset($headers['Authorization'])){
-    $matches = array();
-    preg_match('/Token token="(.*)"/', $headers['Authorization'], $matches);
-    if(isset($matches[1])){
-      $token = $matches[1];
-      echo $token;
-    }
-    else{
-        echo "No token";
-    }
-  }
-  else{
-    echo "No match";
-  }
-  exit;
-
+    echo $mainJwt;
+    
     
 
     // $username = "";
