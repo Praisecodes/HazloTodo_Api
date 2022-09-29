@@ -15,14 +15,14 @@
     
     $skey = 'some_crazy_long_secret_key_I_used';
     $headers = getallheaders(); //$_SERVER["HTTP_AUTHORIZATION"]
-    // $jwt = $headers["Authorization"];
-    // $mainJwt = explode(" ", $jwt)[1];
+    $jwt = $headers["Authorization"];
+    $mainJwt = explode(" ", $jwt)[1];
 
     var_dump($headers);
 
-    // echo $mainJwt;
-    // $decoded_jwt = JWT::decode($mainJwt, $skey, ['HS256']);
-    // echo "done!";
+    echo $mainJwt;
+    $decoded_jwt = JWT::decode($mainJwt, $skey, ['HS256']);
+    echo "done!";
     
     
 
