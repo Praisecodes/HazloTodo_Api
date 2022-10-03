@@ -15,7 +15,7 @@
     
     $skey = 'some_crazy_long_secret_key_I_used';
     $headers = getallheaders(); //$_SERVER["HTTP_AUTHORIZATION"]
-    $jwt = $headers["Host"];
+    $jwt = $headers["Authorization"];
     // $mainJwt = explode(" ", $jwt)[1];
 
     //var_dump($headers);
