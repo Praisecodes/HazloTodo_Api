@@ -28,9 +28,9 @@
                     http_response_code(200);
                     $secretKey = "some_crazy_long_secret_key_I_used";
                     $payload = [
-                        'iss'=>'hazloapi.herokuapp.com',
-                        'iat'=>time(),
-                        'id'=>$userID
+                        // 'iss'=>'hazloapi.herokuapp.com',
+                        // 'iat'=>time(),
+                        'user_id'=>$userID
                     ];
                     $jwt = JWT::encode($payload, $secretKey, "HS256");
                     echo json_encode([
