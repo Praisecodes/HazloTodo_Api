@@ -20,7 +20,7 @@
 
     //var_dump($headers);
 
-    echo $jwt;
+    echo $mainJwt;
     //$decoded_jwt = JWT::decode($mainJwt, $skey, ['HS256']);
     //echo "done!";
     
