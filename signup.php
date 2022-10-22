@@ -8,7 +8,7 @@
     $username = TestInput($decoded["username"]);
     $fullname = TestInput($decoded["fullname"]);
     $email = TestInput($decoded["email"]);
-    $password = TestInput(md5($decoded["password"]));
+    $password = TestInput(password_hash($decoded["password"], PASSWORD_DEFAULT));
 
     if(!empty($fullname) && !empty($username) && !empty($email) && !empty($password)){
         $sql = 'SELECT * FROM `user_info` WHERE username=? OR email=?';
